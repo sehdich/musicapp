@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  MusicApp
+
+  Created by Markus on 17.03.23.
+  
+*/
+
+"album_browser_title" = "Album Browser";
+"album_browser_serch_empty" = "No Album found";
