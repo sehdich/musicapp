@@ -16,7 +16,6 @@ public struct AlbumBrowserView: View {
         self.store = store
     }
 
-    // TODO: Proper Loading indication, display Errors...
     public var body: some View {
         WithViewStore(store) { viewStore in
             List {
@@ -31,7 +30,6 @@ public struct AlbumBrowserView: View {
                 await viewStore.send(.refresh).finish()
             }
             .searchable(
-                // Note: There is a glitch when using that on Simulator - Maybe use real device instead.
                 text: viewStore.binding(
                     get: \.searchText,
                     send: AlbumBrowserReducer.Action.searchTextChanged
@@ -53,13 +51,11 @@ public struct AlbumBrowserView: View {
     ) -> some View {
         switch viewStore.searchResult {
             case .empty:
-                // Move to ErrorView
                 Text(String(localized: "album_browser_serch_empty"))
                     .padding(.top, 20)
 
             case .result(let albums):
                     ForEach(albums) { album in
-                        // Move to SearchResultRowView
                         Text(album.album)
                     }
                     .listRowSeparator(.hidden)

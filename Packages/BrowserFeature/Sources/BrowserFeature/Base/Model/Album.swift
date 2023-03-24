@@ -16,8 +16,6 @@ public struct Album: Codable, Equatable, Identifiable {
     public let year: String        // BE API 2be Questioned: Int/Date
 }
 
-#if DEBUG
-
 extension Album {
     static func mock(id: String = UUID().uuidString) -> Self {
         Album(
@@ -27,5 +25,3 @@ extension Album {
         )
     }
 }
-
-#endif
