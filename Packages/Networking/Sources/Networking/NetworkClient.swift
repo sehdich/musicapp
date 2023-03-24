@@ -13,43 +13,43 @@ public protocol HTTPClient {
 
 public struct StandardHTTPClient: HTTPClient {
 
-    enum RequestError: Error {
-        case decode
-        case unexpectedStatusCode
+    enum RequestError: Error, Equatable {
+        case decoding
+        case unexpectedStatusCode(Int)
         case unexpectedResponse
         case unknown
     }
 
-    let jsonDecoder: JSONDecoder
-    let urlSession: URLSession
+    private let jsonDecoder: JSONDecoder
+
+    public typealias RequestSink = (URLRequest) async throws -> (Data, URLResponse)
+    private let requestSink: RequestSink
 
     public init(
         jsonDecoder: JSONDecoder = JSONDecoder(),
-        urlSession: URLSession = URLSession.shared
+        requestSink: @escaping RequestSink
     ) {
         self.jsonDecoder = jsonDecoder
-        self.urlSession = urlSession
+        self.requestSink = requestSink
     }
 
     public func execute<T: Decodable>(request: URLRequest, responseType: T.Type) async throws -> T {
-        do {
-            let (data, response) = try await urlSession.data(for: request)
-            guard let response = response as? HTTPURLResponse else {
-                throw RequestError.unexpectedResponse
-            }
-            switch response.statusCode {
-                case 200...299:
-                    guard let decodedResponse = try? jsonDecoder.decode(responseType, from: data) else {
-                         throw RequestError.decode
-                    }
+        let (data, response) = try await requestSink(request)
+        guard let response = response as? HTTPURLResponse else {
+            throw RequestError.unexpectedResponse
+        }
+        // print ("Response: \(response)")
 
-                    return decodedResponse
+        switch response.statusCode {
+            case 200...299:
+                guard let decodedResponse = try? jsonDecoder.decode(responseType, from: data) else {
+                    throw RequestError.decoding
+                }
 
-                default:
-                    throw RequestError.unexpectedStatusCode
-            }
-        } catch {
-            throw RequestError.unknown
+                return decodedResponse
+
+            default:
+                throw RequestError.unexpectedStatusCode(response.statusCode)
         }
     }
 }
