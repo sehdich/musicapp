@@ -15,6 +15,9 @@ Preview Apps are used to showcase Features in specific scenarios with live or mo
 
 * see `BrowserFeaturePrevievApp`
 
+## Push Notifications
+* Entitlements -> https://developer.apple.com/account/resources/identifiers/bundleId/edit/SZ67XM9K9G
+
 ## General
 
 Additional topics which should be added/thought off in general before releasing/scaling it:
