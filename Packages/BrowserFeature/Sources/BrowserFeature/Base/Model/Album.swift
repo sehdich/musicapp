@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Markus on 17.03.23.
+//  Created by Markus on 26.03.23.
 //
 
 import Foundation
@@ -19,9 +19,12 @@ public struct Album: Codable, Equatable, Identifiable {
 extension Album {
     static func mock(id: String = UUID().uuidString) -> Self {
         Album(
-            id: id, album: "album",
-            artist: "artist", label: "label",
-            tracks: ["track1", "track2"], year: "2009"
+            id: id,
+            album: "album",
+            artist: "artist",
+            label: "label",
+            tracks: ["track1", "track2"],
+            year: "2009"
         )
     }
 }

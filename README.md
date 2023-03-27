@@ -20,9 +20,7 @@ Preview Apps are used to showcase Features in specific scenarios with live or mo
 Additional topics which should be added/thought off in general before releasing/scaling it:
 
 * Health/Performance monitoring (e.g. Firebase)
-* Linting-Tool (e.g. `SwiftLint`)
 * Coding rules
-* Logging
 * ...
 
 ## Used Tech stack
@@ -33,5 +31,7 @@ Additional topics which should be added/thought off in general before releasing/
 
 
 ## External Dependency
+
 * https://github.com/pointfreeco/swift-composable-architecture
+* https://github.com/realm/SwiftLint
 

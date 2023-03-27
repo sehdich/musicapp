@@ -2,11 +2,11 @@
 //  PreviewApp.swift
 //  BrowserFeaturePreviewApp
 //
-//  Created by Markus Flandorfer on 17.03.23.
+//  Created by Markus Flandorfer on 26.03.23.
 //
 
-import ComposableArchitecture
 import BrowserFeature
+import ComposableArchitecture
 import SwiftUI
 
 @main

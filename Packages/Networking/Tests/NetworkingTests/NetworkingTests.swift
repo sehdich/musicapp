@@ -1,5 +1,5 @@
-import XCTest
 @testable import Networking
+import XCTest
 
 final class NetworkingTests: XCTestCase {
 
@@ -8,7 +8,7 @@ final class NetworkingTests: XCTestCase {
         let client = StandardHTTPClient { _ in
             (Data(), urlResponse)
         }
-        let request = URLRequest(url: URL(string:"http://www.google.com")!)
+        let request = URLRequest(url: URL(string: "http://www.google.com")!)
 
         do {
             _ = try await client.execute(request: request, responseType: String.self)
@@ -30,7 +30,7 @@ final class NetworkingTests: XCTestCase {
         let client = StandardHTTPClient { _ in
             (jsonData, urlResponse)
         }
-        let request = URLRequest(url: URL(string:"http://www.google.com")!)
+        let request = URLRequest(url: URL(string: "http://www.google.com")!)
 
         do {
             _ = try await client.execute(request: request, responseType: String.self)
@@ -41,7 +41,7 @@ final class NetworkingTests: XCTestCase {
     }
 
     func testUnexpectedHTTPStatusCode() async throws {
-        let url = URL(string:"http://www.google.com")!
+        let url = URL(string: "http://www.google.com")!
         let httpStatusCode: Int = 500
         let urlResponse = HTTPURLResponse(url: url, statusCode: httpStatusCode, httpVersion: nil, headerFields: nil)!
 

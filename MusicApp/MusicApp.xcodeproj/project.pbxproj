@@ -146,6 +146,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 09A3418829C2FBB900369729 /* Build configuration list for PBXNativeTarget "MusicApp" */;
 			buildPhases = (
+				09326E1129D1B35B00A8B682 /* ShellScript */,
 				09A3416029C2FBB700369729 /* Sources */,
 				09A3416129C2FBB700369729 /* Frameworks */,
 				09A3416229C2FBB700369729 /* Resources */,
@@ -217,6 +218,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09326E1129D1B35B00A8B682 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  cd .. && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		095EC25C29C458C600883F77 /* Sources */ = {

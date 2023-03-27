@@ -1,8 +1,6 @@
-
-import ComposableArchitecture
 @testable import BrowserFeature
+import ComposableArchitecture
 import XCTest
-
 
 @MainActor
 final class AlbumBrowserReducerTests: XCTestCase {
@@ -20,7 +18,7 @@ final class AlbumBrowserReducerTests: XCTestCase {
         store.dependencies.albumService.albums = { exepctedAlbumes }
 
         await store.send(.loadAlbums)
-        await store.receive(.albumResponse(TaskResult { exepctedAlbumes } )) {
+        await store.receive(.albumResponse(TaskResult { exepctedAlbumes })) {
             $0.albums = exepctedAlbumes
         }
     }

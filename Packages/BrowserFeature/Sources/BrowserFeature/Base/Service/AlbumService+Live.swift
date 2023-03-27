@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Markus on 17.03.23.
+//  Created by Markus on 26.03.23.
 //
 
 import ComposableArchitecture
@@ -18,7 +18,7 @@ extension AlbumService: DependencyKey {
             urlRequest.timeoutInterval = 2.0
             urlRequest.setValue("Accept", forHTTPHeaderField: "application/json")
 
-            let httpClient = StandardHTTPClient() { request in
+            let httpClient = StandardHTTPClient { request in
                 try await URLSession.shared.data(for: request)
             }
 

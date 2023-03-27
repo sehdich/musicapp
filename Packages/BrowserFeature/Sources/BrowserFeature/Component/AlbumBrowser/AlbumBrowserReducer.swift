@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Markus on 17.03.23.
+//  Created by Markus on 26.03.23.
 //
 
 import ComposableArchitecture
@@ -71,8 +71,7 @@ public struct AlbumBrowserReducer: ReducerProtocol {
                     state.albums = albums
                     return .none
 
-                case .albumResponse(.failure): // .failure(let error)
-                    // TODO: Show Errors
+                case .albumResponse(.failure):
                     return .none
 
                 case .searchTextChanged(let searchText):
@@ -113,7 +112,7 @@ public struct AlbumBrowserReducer: ReducerProtocol {
         }
     }
 
-    private func filterAlbums(bySearchTags searchTags: Array<Substring>, albums: [Album]) -> [Album] {
+    private func filterAlbums(bySearchTags searchTags: [Substring], albums: [Album]) -> [Album] {
         Array(
             albums
                 .filter { album in
@@ -124,5 +123,3 @@ public struct AlbumBrowserReducer: ReducerProtocol {
         )
     }
 }
-
-
