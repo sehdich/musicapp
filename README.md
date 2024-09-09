@@ -8,7 +8,7 @@ It makes use of Swift Packages to modularize Features from the beginning. For no
 Provides possibility browsing and searching through a music collections fetched from a Server. It includes some Unit tests as well.
 
 2. `Networking`
-Provides base Networking possibilities.
+Provides base Networking possibilities
 
 ## Preview Apps
 Preview Apps are used to showcase Features in specific scenarios with live or mocked data. They can speed up development as it's no longer needed starting the full application (doing so typically requires authentication etc. as well).
