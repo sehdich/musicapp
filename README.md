@@ -1,6 +1,6 @@
 # MusicApp
 
-A simple showcase App which is based on TCA from [pointfree](https://www.pointfree.co).
+A simple showcase App which is based on TCA from [pointfree](https://www.pointfree.co)
 
 It makes use of Swift Packages to modularize Features from the beginning. For now 2 modules are implempented (see `Packages` directory).
 
